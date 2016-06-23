@@ -23,17 +23,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{user.name}"/>
+            android:text="@{user.name}"
+            android:textSize="@dimen/activity_horizontal_margin"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{String.valueOf(user.age)}"
-            />
+            android:textSize="@dimen/activity_horizontal_margin"/>
         <TextView
             android:id="@+id/sex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{user.sex}"/>
+            android:text="@{user.sex}"
+            android:textSize="@dimen/activity_horizontal_margin"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </layout>

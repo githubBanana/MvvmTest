@@ -1,6 +1,7 @@
 package com.xs.mvvmtest.listview.adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
@@ -105,5 +106,9 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
         return getmList().size();
+    }
+
+    public interface OnItemClickListener<T> {
+        void onItemClick(View view, T t, int position);
     }
 }

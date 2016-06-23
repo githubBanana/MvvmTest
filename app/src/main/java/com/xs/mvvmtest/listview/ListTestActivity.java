@@ -1,24 +1,15 @@
 package com.xs.mvvmtest.listview;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
-
+import android.widget.Toast;
 import com.xs.mvvmtest.R;
-import com.xs.mvvmtest.activity.MainActivity;
 import com.xs.mvvmtest.activity.MvvmActivity;
-import com.xs.mvvmtest.fragment.MvvmFragment;
+import com.xs.mvvmtest.listview.adapter.BaseAdapter;
 import com.xs.mvvmtest.listview.adapter.UserAdapter;
-import com.xs.mvvmtest.viewmodel.ViewModel;
 import com.xs.mvvmtest.viewmodel.listviewmodel.ListBinding;
 import com.xs.mvvmtest.viewmodel.listviewmodel.ListTestModel;
 import com.xs.mvvmtest.viewmodel.listviewmodel.UserViewModel;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 /**
  * @version V1.0 <描述当前版本功能>
@@ -48,13 +39,16 @@ public class ListTestActivity extends MvvmActivity<ListTestModel,ListBinding> {
     @Override
     protected void initView() {
 
-        UserAdapter userAdapter = new UserAdapter(this);
+        final UserAdapter userAdapter = new UserAdapter(this, new BaseAdapter.OnItemClickListener<UserViewModel>() {
+            @Override
+            public void onItemClick(View view, UserViewModel userViewModel, int position) {
+                Toast.makeText(ListTestActivity.this,"act:"+userViewModel.name.get()+"  "+position,Toast.LENGTH_LONG).show();
+            }
+        });
         getBinding().rv.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         getBinding().rv.setAdapter(userAdapter);
 
-        List<UserViewModel> list = new ArrayList<>();
-        list.add(new UserViewModel("jj",11,"man"));
-        list.add(new UserViewModel("gg",33,"girl"));
-        userAdapter.setData(list);
+        getViewModel().initData(userAdapter);
+
     }
 }
