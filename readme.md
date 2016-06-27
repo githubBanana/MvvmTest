@@ -6,3 +6,7 @@ Mvvm 框架
 
 refer to :<br>
  http://rocko.xyz/2015/11/07/MVVM_Android-CleanArchitecture/#more
+
+另外
+===
+gradle统一管理编译
