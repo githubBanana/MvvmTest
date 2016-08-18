@@ -2,6 +2,7 @@ package com.xs.mvvmtest.activity;
 
 import android.support.design.widget.Snackbar;
 import android.view.View;
+
 import com.xs.mvvmtest.MainBinding;
 import com.xs.mvvmtest.R;
 import com.xs.mvvmtest.viewmodel.MainViewModel;
@@ -31,6 +32,7 @@ implements MainViewModel.OnDialogShow{
     protected boolean toBinding() {
         getBinding().setMyviewmodel(getViewModel());
         return true;
+
     }
 
     @Override
