@@ -1,57 +1,52 @@
 package com.xs.basic_mvvm.activity;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.ViewGroup;
 
-import com.xs.basic_mvvm.callback.ICallBck;
-import com.xs.basic_mvvm.widget.load.LoadingFragment;
+import com.xs.basic_mvvm.R;
 
 /**
- * @version V1.0 <提示View>
+ * @version V1.0 <Toolbar Base Activity>
  * @author: Xs
  * @date: 2016-08-17 11:15
  * @email Xs.lin@foxmail.com
  */
-public class BaseActivity extends AppCompatActivity implements ICallBck{
-    private static final String TAG = "BaseActivity";
+public class BaseActivity extends AppCompatActivity{
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
+    protected void initContentView(int contentViewId) {
+        initToolbar(contentViewId,true);
     }
 
-    @Override
-    public void showToast(String str) {
-        Toast.makeText(this,str,Toast.LENGTH_SHORT).show();
+    protected void initContentView(int contentViewId,boolean isToolbar) {
+        initToolbar(contentViewId,isToolbar);
     }
 
-    @Override
-    public void showToast(@StringRes int resId) {
-        Toast.makeText(this,getString(resId),Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void showLoadingView(@StringRes int resId) {
-        LoadingFragment.getLoad(getString(resId)).show(getSupportFragmentManager(),LoadingFragment.TAG);
-    }
-
-    @Override
-    public void showLoadingView() {
-        LoadingFragment.getLoad(null).show(getSupportFragmentManager(),LoadingFragment.TAG);
-    }
-
-    @Override
-    public void dismissLoadingView() {
-        Fragment _fm = getSupportFragmentManager().findFragmentByTag(LoadingFragment.TAG);
-        if (_fm != null) {
-            DialogFragment _df = (DialogFragment) _fm;
-            _df.dismiss();
+    /**
+     * 初始化 Toolbar
+     * @param contentViewId
+     * @param isToolbar
+     */
+    private void initToolbar(int contentViewId,boolean isToolbar) {
+        if (isToolbar) {
+            ViewGroup contentView = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.layout_toolbar, null);
+            Toolbar toolbar = (Toolbar) contentView.findViewById(R.id.toolbar);
+            contentView.addView(getLayoutInflater().inflate(contentViewId, null), new ViewGroup.LayoutParams(-1, -1));
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            super.setContentView(contentView);
+        } else {
+            super.setContentView(contentViewId);
         }
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home)
+            finish();
+        return super.onOptionsItemSelected(item);
     }
 }

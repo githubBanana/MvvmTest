@@ -14,7 +14,7 @@ import com.xs.basic_mvvm.presenter.IBaseView;
  * @date: 2016-08-17 14:07
  * @email Xs.lin@foxmail.com
  */
-public abstract class ViewModel<CallBack extends ICallBck> extends BaseObservable
+public class ViewModel<CallBack extends ICallBck> extends BaseObservable
         implements ICallBck,ILifeCycle,IBaseView{
 
     private CallBack _callback;
@@ -29,7 +29,9 @@ public abstract class ViewModel<CallBack extends ICallBck> extends BaseObservabl
      * 业务层
      * @return
      */
-    protected abstract BaseBiz createBiz();
+    protected  BaseBiz createBiz(){
+        return null;
+    }
 
     protected CallBack getCallback() {
         return _callback;

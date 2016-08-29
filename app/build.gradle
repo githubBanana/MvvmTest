@@ -32,5 +32,5 @@ dependencies {
     compile dependenciesCf.design
     compile dependenciesCf.recyclerview
     compile dependenciesCf.cardview
-    compile project(':basic_mvvm')
+    compile project(':basic_general')
 }
