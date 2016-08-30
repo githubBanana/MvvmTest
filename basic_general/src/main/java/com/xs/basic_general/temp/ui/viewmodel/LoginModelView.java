@@ -14,12 +14,11 @@ import com.xs.basic_mvvm.presenter.BaseBiz;
  * @email Xs.lin@foxmail.com
  */
 public class LoginModelView extends BaseViewModel<ILoginCallback,LoginModel> implements ILoginView {
-    private static final String TAG = "LoginModelView";
 
     public String userName;
     public String password;
     public String version;
-
+    public String loginText;
     public ILoginBiz biz;
 
     public LoginModelView(ILoginCallback iLoginCallback) {
@@ -74,5 +73,15 @@ public class LoginModelView extends BaseViewModel<ILoginCallback,LoginModel> imp
     @Override
     public void onLoginCompleted(LoginModel loginModel) {
 
+    }
+
+    @Override
+    public String getLoginText() {
+        return loginText;
+    }
+
+    @Override
+    public void setLoginText(String text) {
+        this.loginText = text;
     }
 }

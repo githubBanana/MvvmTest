@@ -3,7 +3,7 @@ package com.xs.basic_mvvm.callback;
 import android.support.annotation.StringRes;
 
 /**
- * @version V1.0 <提示VIEW 接口>
+ * @version V1.0 <提示VIEW 接口（工具）>
  * @author: Xs
  * @date: 2016-08-17 14:34
  * @email Xs.lin@foxmail.com

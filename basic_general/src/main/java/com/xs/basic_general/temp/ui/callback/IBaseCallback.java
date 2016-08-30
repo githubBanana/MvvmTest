@@ -3,7 +3,7 @@ package com.xs.basic_general.temp.ui.callback;
 import com.xs.basic_mvvm.callback.ICallBck;
 
 /**
- * @version V1.0 <描述当前版本功能>
+ * @version V1.0 <根据实际项目业务需求扩展接口>
  * @author: Xs
  * @date: 2016-08-29 11:57
  * @email Xs.lin@foxmail.com

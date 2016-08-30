@@ -13,7 +13,6 @@ import com.xs.basic_mvvm.model.ViewModel;
  * @email Xs.lin@foxmail.com
  */
 public abstract class BaseActivity<VM extends ViewModel,B extends ViewDataBinding> extends BaseMvvmActivity<VM,B> implements IBaseCallback {
-    private static final String TAG = "BaseActivity";
 
     @Override
     public String getUserId() {
@@ -24,7 +23,6 @@ public abstract class BaseActivity<VM extends ViewModel,B extends ViewDataBindin
     public void onDataLoadSuccess() {
 
     }
-
     @Override
     public void onSubmitCompleted(Object object) {
 

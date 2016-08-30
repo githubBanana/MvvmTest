@@ -1,6 +1,7 @@
 package com.xs.mvvmtest.activity;
 
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 
 import com.xs.mvvmtest.MainBinding;
@@ -37,8 +38,13 @@ implements MainViewModel.OnDialogShow{
 
     @Override
     protected void initView() {
-        getBinding().btnB.setText("i need");
-        getBinding().tvC.setText("CCCCCC");
+      /*  getBinding().btnB.setText("i need");
+        getBinding().tvC.setText("CCCCCC");*/
+//        getViewModel()._a.set("nihao ");
+        Log.e(TAG, "initView: "+getBinding() );
+        getViewModel()._a.set("ddddd");
+        getBinding().tvAaa.setText("eeeeeeeeeee ");
+
     }
 
 

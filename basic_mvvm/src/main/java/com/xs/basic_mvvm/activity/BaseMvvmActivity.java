@@ -2,12 +2,10 @@ package com.xs.basic_mvvm.activity;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.xs.basic_mvvm.callback.ICallBck;
@@ -20,23 +18,22 @@ import com.xs.basic_mvvm.widget.load.LoadingFragment;
  * @date: 2016-08-17 11:14
  * @email Xs.lin@foxmail.com
  */
-public abstract class BaseMvvmActivity<VM extends ViewModel,B extends ViewDataBinding> extends BaseActivity implements ICallBck{
-    private static final String TAG = "BaseMvvmActivity";
+public class BaseMvvmActivity<VM extends ViewModel,B extends ViewDataBinding> extends BaseActivity implements ICallBck{
 
     private B   _b;
     private VM  _vm;
 
     @Override
-    protected final void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected View parseLayoutResId(int layoutResID) {
         _vm = initViewModel();
-        _b = DataBindingUtil.setContentView(this,getContentViewId());
-        isBinding();
-        initView();
-        if (isHasToolbar())
-            initContentView(getContentViewId());
-        else
-            initContentView(getContentViewId(),false);
+        try {
+            _b = DataBindingUtil.inflate(getLayoutInflater(), layoutResID, null, false);
+            toBinding();
+            return _b.getRoot();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return super.parseLayoutResId(layoutResID);
     }
 
     @Override
@@ -60,17 +57,19 @@ public abstract class BaseMvvmActivity<VM extends ViewModel,B extends ViewDataBi
             _vm.onDestroy();
     }
 
+    /**
+     *  init ViewModel
+     */
+    protected VM initViewModel() {
+        return null;
+    }
 
-    /* init ViewModel*/
-    protected abstract VM initViewModel();
-    /* init DataBinding*/
-    protected abstract int getContentViewId();
-    /* to bind ViewModel and DataBinding*/
-    protected abstract boolean toBinding();
-    /* init other view*/
-    protected abstract void initView();
-    /* to determine whether or not to be have a toolbar*/
-    protected abstract boolean isHasToolbar();
+    /**
+     * to bind viewmodel and viewdatabinding
+     */
+    protected void toBinding() {
+
+    }
 
     protected VM getViewModel() {
         if (_vm == null)
@@ -83,21 +82,6 @@ public abstract class BaseMvvmActivity<VM extends ViewModel,B extends ViewDataBi
             throw new NullPointerException("you should init binding");
         return _b;
     }
-
-    /**
-     * To determine whether or not to bind
-     */
-    private void isBinding() {
-        if (!toBinding()) {
-            try {
-                throw new Exception();
-            } catch (Exception e) {
-                e.printStackTrace();
-                Log.e(TAG, "ViewModel and DataBinding should be bind" );
-            }
-        }
-    }
-
 
 
     @Override

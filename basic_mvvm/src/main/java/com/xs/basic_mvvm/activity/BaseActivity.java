@@ -2,8 +2,10 @@ package com.xs.basic_mvvm.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.xs.basic_mvvm.R;
@@ -16,32 +18,73 @@ import com.xs.basic_mvvm.R;
  */
 public class BaseActivity extends AppCompatActivity{
 
-    protected void initContentView(int contentViewId) {
-        initToolbar(contentViewId,true);
+    /**
+     * 标题参数
+     */
+    public static final String EXTRA_TITLE_NAME = "title_name";
+
+    @Override
+    public void setContentView(int layoutResID) {
+        try {
+            View view = parseLayoutResId(layoutResID);
+            setContentView(view,false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    protected void initContentView(int contentViewId,boolean isToolbar) {
-        initToolbar(contentViewId,isToolbar);
+    public void setContentView(int layoutResID, boolean isToobar) {
+        View view = parseLayoutResId(layoutResID);
+        setContentView(view, isToobar);
     }
 
     /**
-     * 初始化 Toolbar
-     * @param contentViewId
-     * @param isToolbar
+     * 解析布局文件
+     *
+     * @param layoutResID
+     * @return
      */
-    private void initToolbar(int contentViewId,boolean isToolbar) {
-        if (isToolbar) {
+    protected View parseLayoutResId(int layoutResID) {
+        return getLayoutInflater().inflate(layoutResID,null);
+    }
+
+    /**
+     * 默认使用toolbar
+     * @return
+     */
+    protected boolean isHasToobar() {
+        return true;
+    }
+
+    /**
+     * 初始化布局
+     * @param view
+     * @param isToobar
+     */
+    protected void setContentView(View view, boolean isToobar) {
+        if (isToobar) {
             ViewGroup contentView = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.layout_toolbar, null);
             Toolbar toolbar = (Toolbar) contentView.findViewById(R.id.toolbar);
-            contentView.addView(getLayoutInflater().inflate(contentViewId, null), new ViewGroup.LayoutParams(-1, -1));
+            contentView.addView(view, new ViewGroup.LayoutParams(-1, -1));
             setSupportActionBar(toolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             super.setContentView(contentView);
         } else {
-            super.setContentView(contentViewId);
+            super.setContentView(view);
         }
+        final String title = getIntent().getStringExtra(EXTRA_TITLE_NAME);
+        if (!TextUtils.isEmpty(title))
+            setTitle(title);
     }
 
+    /**
+     * 设置bar主题
+     * @param title
+     */
+    @Override
+    public void setTitle(CharSequence title) {
+        getSupportActionBar().setTitle(title);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

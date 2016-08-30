@@ -53,4 +53,7 @@ public interface ILoginView extends IBaseView{
      * @param loginModel
      */
     void onLoginCompleted(LoginModel loginModel);
+
+    String getLoginText();
+    void   setLoginText(String text);
 }
