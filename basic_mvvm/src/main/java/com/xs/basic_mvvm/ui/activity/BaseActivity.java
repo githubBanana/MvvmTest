@@ -1,4 +1,4 @@
-package com.xs.basic_mvvm.activity;
+package com.xs.basic_mvvm.ui.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;

@@ -3,8 +3,8 @@ package com.xs.basic_general.temp.ui.activity.base;
 import android.databinding.ViewDataBinding;
 
 import com.xs.basic_general.temp.ui.callback.IBaseCallback;
-import com.xs.basic_mvvm.activity.BaseMvvmActivity;
-import com.xs.basic_mvvm.model.ViewModel;
+import com.xs.basic_mvvm.ui.activity.BaseMvvmActivity;
+import com.xs.basic_mvvm.ui.viewmodel.ViewModel;
 
 /**
  * @version V1.0 <描述当前版本功能>

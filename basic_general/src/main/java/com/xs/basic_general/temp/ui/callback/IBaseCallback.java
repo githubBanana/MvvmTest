@@ -1,6 +1,6 @@
 package com.xs.basic_general.temp.ui.callback;
 
-import com.xs.basic_mvvm.callback.ICallBck;
+import com.xs.basic_mvvm.ui.callback.ICallBck;
 
 /**
  * @version V1.0 <根据实际项目业务需求扩展接口>

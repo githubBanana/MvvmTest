@@ -16,6 +16,7 @@ import com.xs.basic_mvvm.R;
  * @author: Xs
  * @date: 2016-06-04 14:48
  * @email Xs.lin@foxmail.com
+ *
  */
 public class LoadingFragment extends DialogFragment {
     public static final String TAG = LoadingFragment.class.getSimpleName();

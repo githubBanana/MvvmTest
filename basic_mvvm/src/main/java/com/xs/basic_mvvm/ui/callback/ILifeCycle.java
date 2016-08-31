@@ -1,4 +1,4 @@
-package com.xs.basic_mvvm.callback;
+package com.xs.basic_mvvm.ui.callback;
 
 /**
  * @version V1.0 <生命周期接口>

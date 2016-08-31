@@ -1,4 +1,4 @@
-package com.xs.basic_mvvm.presenter;
+package com.xs.basic_mvvm.model;
 
 import java.io.Serializable;
 import java.util.List;

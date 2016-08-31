@@ -2,7 +2,7 @@ package com.xs.basic_general.temp.presenter.biz.impl;
 
 import com.xs.basic_general.temp.presenter.ILoginView;
 import com.xs.basic_general.temp.presenter.biz.ILoginBiz;
-import com.xs.basic_mvvm.callback.ICallBck;
+import com.xs.basic_mvvm.ui.callback.ICallBck;
 import com.xs.basic_mvvm.presenter.BaseBiz;
 
 /**

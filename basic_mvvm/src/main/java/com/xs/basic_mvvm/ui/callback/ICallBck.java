@@ -1,4 +1,4 @@
-package com.xs.basic_mvvm.callback;
+package com.xs.basic_mvvm.ui.callback;
 
 import android.support.annotation.StringRes;
 

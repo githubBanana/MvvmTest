@@ -2,7 +2,7 @@ package com.xs.basic_general.temp.ui.viewmodel;
 
 import com.xs.basic_general.temp.presenter.IBaseSuperView;
 import com.xs.basic_general.temp.ui.callback.IBaseCallback;
-import com.xs.basic_mvvm.model.ViewModel;
+import com.xs.basic_mvvm.ui.viewmodel.ViewModel;
 
 import java.util.HashMap;
 

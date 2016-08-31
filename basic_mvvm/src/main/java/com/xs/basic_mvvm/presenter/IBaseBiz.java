@@ -1,6 +1,6 @@
 package com.xs.basic_mvvm.presenter;
 
-import com.xs.basic_mvvm.callback.ILifeCycle;
+import com.xs.basic_mvvm.ui.callback.ILifeCycle;
 
 /**
  * @version V1.0 <描述当前版本功能>

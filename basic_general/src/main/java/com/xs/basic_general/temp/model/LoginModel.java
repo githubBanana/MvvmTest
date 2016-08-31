@@ -1,7 +1,7 @@
 package com.xs.basic_general.temp.model;
 
 
-import com.xs.basic_mvvm.presenter.BaseModel;
+import com.xs.basic_mvvm.model.BaseModel;
 
 public class LoginModel extends BaseModel<LoginModel> {
 

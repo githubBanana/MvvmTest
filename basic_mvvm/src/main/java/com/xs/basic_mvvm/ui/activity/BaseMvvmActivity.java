@@ -1,4 +1,4 @@
-package com.xs.basic_mvvm.activity;
+package com.xs.basic_mvvm.ui.activity;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
@@ -8,8 +8,8 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Toast;
 
-import com.xs.basic_mvvm.callback.ICallBck;
-import com.xs.basic_mvvm.model.ViewModel;
+import com.xs.basic_mvvm.ui.callback.ICallBck;
+import com.xs.basic_mvvm.ui.viewmodel.ViewModel;
 import com.xs.basic_mvvm.widget.load.LoadingFragment;
 
 /**
@@ -48,6 +48,7 @@ public class BaseMvvmActivity<VM extends ViewModel,B extends ViewDataBinding> ex
         super.onStop();
         if (_vm != null)
             _vm.onStop();
+        dismissLoadingView();
     }
 
     @Override
