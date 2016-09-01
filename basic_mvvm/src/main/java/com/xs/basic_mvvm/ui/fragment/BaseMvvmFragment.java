@@ -22,7 +22,7 @@ import com.xs.basic_mvvm.widget.load.LoadingFragment;
  * @date: 2016-08-31 17:43
  * @email Xs.lin@foxmail.com
  */
-public class BaseMvvmFragment<VM extends ViewModel,B extends ViewDataBinding> extends Fragment implements ICallBck {
+public abstract class BaseMvvmFragment<VM extends ViewModel,B extends ViewDataBinding> extends Fragment implements ICallBck {
 
     private B   _b;
     private VM  _vm;
@@ -36,9 +36,7 @@ public class BaseMvvmFragment<VM extends ViewModel,B extends ViewDataBinding> ex
     /**
      * 获取布局资源
      */
-    protected int getLayoutResId() {
-        return 0;
-    }
+    protected abstract int getLayoutResId();
 
     /**
      *  init ViewModel

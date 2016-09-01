@@ -29,7 +29,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     def dependenciesCf = rootProject.ext.dependencieslib
     compile dependenciesCf.appcompatv7
-    compile dependenciesCf.design
+
     compile dependenciesCf.recyclerview
     compile dependenciesCf.cardview
     compile project(':basic_general')

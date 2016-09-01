@@ -1,4 +1,4 @@
-package com.xs.basic_general.temp.ui.fragment;
+package com.xs.basic_general.temp.ui.fragment.base;
 
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.xs.basic_general.temp.ui.callback.IBaseCallback;
 import com.xs.basic_mvvm.ui.fragment.BaseMvvmFragment;
 import com.xs.basic_mvvm.ui.viewmodel.ViewModel;
 
@@ -16,7 +17,7 @@ import com.xs.basic_mvvm.ui.viewmodel.ViewModel;
  * @date: 2016-08-31 18:12
  * @email Xs.lin@foxmail.com
  */
-public class BaseFragment<VM extends ViewModel,B extends ViewDataBinding> extends BaseMvvmFragment<VM,B> {
+public abstract class BaseFragment<VM extends ViewModel,B extends ViewDataBinding> extends BaseMvvmFragment<VM,B> implements IBaseCallback{
     private static final String TAG = "BaseFragment";
 
 
@@ -24,5 +25,20 @@ public class BaseFragment<VM extends ViewModel,B extends ViewDataBinding> extend
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    @Override
+    public String getUserId() {
+        return null;
+    }
+
+    @Override
+    public void onDataLoadSuccess() {
+
+    }
+
+    @Override
+    public void onSubmitCompleted(Object object) {
+
     }
 }

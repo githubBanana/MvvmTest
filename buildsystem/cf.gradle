@@ -19,8 +19,10 @@ ext {
     rxjava_Version          = '1.1.9'
     rxandroid_Version       = '1.2.1'
     retrofit_Version        = '2.1.0'
-    retrofit_adapter_rxjava_Version = '2.0.0-beta2'
-    retrofit_converter_gson_Version = '2.0.0-beta2'
+    retrofit_adapter_rxjava_Version = '2.1.0'
+    retrofit_converter_gson_Version = '2.1.0'
+
+    okhttp_Version          = '3.4.1'
 
     //dependencies
     dependencieslib = [
@@ -30,9 +32,10 @@ ext {
             cardview          :   "com.android.support:cardview-v7:${cardview_Version}",
             rxjava            :   "io.reactivex:rxjava:${rxjava_Version}",
             rxandroid         :   "io.reactivex:rxandroid:${rxandroid_Version}",
-            retrofit_converter_gson  : "com.squareup.retrofit:converter-gson:${retrofit_converter_gson_Version}",
-            retrofit_adapter_rxjava  : "com.squareup.retrofit:adapter-rxjava:${retrofit_adapter_rxjava_Version}",
-            retrofit          :   "com.squareup.retrofit2:retrofit:${retrofit_Version}"
+            retrofit_converter_gson  : "com.squareup.retrofit2:converter-gson:${retrofit_converter_gson_Version}",
+            retrofit_adapter_rxjava  : "com.squareup.retrofit2:adapter-rxjava:${retrofit_adapter_rxjava_Version}",
+            retrofit          :   "com.squareup.retrofit2:retrofit:${retrofit_Version}",
+            okhttp            :   "com.squareup.okhttp3:okhttp:${okhttp_Version}"
     ]
 
 }

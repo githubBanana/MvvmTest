@@ -18,6 +18,6 @@ public class LoginBizImpl extends BaseBiz<ILoginView> implements ILoginBiz {
 
     @Override
     public void login() {
-
+        showToast("login laxi");
     }
 }
