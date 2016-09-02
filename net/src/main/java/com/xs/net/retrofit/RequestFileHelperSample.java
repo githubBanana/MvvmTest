@@ -16,14 +16,14 @@ import rx.Observable;
  * @date: 2016-04-08 15:31
  * @email Xs.lin@foxmail.com
  */
-public class RequestFileHelper {
+public class RequestFileHelperSample {
 
     public static final String WEB_SERVICE = "http://wd.zfwsc.com/Admin/File/";
 
     private static ApiService mApiService;
-    private static final RequestFileHelper INSTANCE = new RequestFileHelper();
-    private RequestFileHelper() {}
-    public static final RequestFileHelper getInstance() {
+    private static final RequestFileHelperSample INSTANCE = new RequestFileHelperSample();
+    private RequestFileHelperSample() {}
+    public static final RequestFileHelperSample getInstance() {
         return INSTANCE;
     }
     /**

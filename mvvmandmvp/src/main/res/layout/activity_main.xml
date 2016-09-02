@@ -8,5 +8,5 @@
     tools:context="com.xs.mvvmandmvp.MainActivity">
 
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Hello Worldeeeeeeeeeee!" />
 </RelativeLayout>
