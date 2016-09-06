@@ -1,1 +1,1 @@
-include ':app', ':basic_mvvm', ':basic_general', ':mvvmandmvp', ':net'
+include ':app', ':basic_general', ':mvvmandmvp', ':net', ':basic_mvvm1'

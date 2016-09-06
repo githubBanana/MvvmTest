@@ -1,11 +1,11 @@
 package com.xs.net.retrofit;
 
-import com.xs.net.model.FileModel;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
+import mdel.sample.FileModelSample;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import rx.Observable;
@@ -31,11 +31,11 @@ public class RequestFileHelperSample {
      * @param imgFile
      * @return
      */
-    public Observable<FileModel> upload(File imgFile) {
+    public Observable<FileModelSample> upload(File imgFile) {
         Map<String, RequestBody> map = new HashMap<>();
         RequestBody fileBody = RequestBody.create(MediaType.parse("image/jpg"), imgFile);
         map.put("image\"; filename=\""+imgFile.getName()+"", fileBody);
-        return new RetrofitFileClient.Builder().method("Upload").map(map).post3(FileModel.class);
+        return new RetrofitFileClient.Builder().method("Upload").map(map).post3(FileModelSample.class);
     }
 
 

@@ -1,13 +1,13 @@
 package com.xs.net.retrofit;
 
-import com.xs.net.model.LoginModel;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import mdel.sample.LoginModelSample;
 import rx.Observable;
 
-public class RequestHelper {
+public class RequestHelperSample {
 
 
     public static final String HOST = "http://192.168.1.222:8080";
@@ -15,9 +15,9 @@ public class RequestHelper {
     public static final String ABOUT_US = "http://weidongzn.com/Web/App/AboutUs";
 
 
-    private static final RequestHelper INSTANCE = new RequestHelper();
-    private RequestHelper() {}
-    public static final RequestHelper getInstance() {
+    private static final RequestHelperSample INSTANCE = new RequestHelperSample();
+    private RequestHelperSample() {}
+    public static final RequestHelperSample getInstance() {
         return INSTANCE;
     }
 
@@ -35,13 +35,13 @@ public class RequestHelper {
      * @param AppType
      * @return
      */
-    public Observable<LoginModel> login(String LoginName, String Password, String UUID, int AppType) {
+    public Observable<LoginModelSample> login(String LoginName, String Password, String UUID, int AppType) {
         Map<String, Object> map = new HashMap<>();
         map.put("LoginName", LoginName);
         map.put("Password", Password);
         map.put("UUID", UUID);
         map.put("AppType", String.valueOf(AppType));
-        return new RetrofitClient.Builder().method("Login").map(map).post(LoginModel.class);
+        return new RetrofitClient.Builder().method("Login").map(map).post(LoginModelSample.class);
     }
 
 

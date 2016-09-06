@@ -125,9 +125,9 @@ public class RetrofitClient {
         String json = new Gson().toJson(map);
         String encryptContent = DESUtil.encryptAsDoNet(json);
         map.clear();
-        Log.e("RequestHelper", "encryptMap start:" + json);
+        Log.e("RequestHelperSample", "encryptMap start:" + json);
         map.put("json", encryptContent);
-        Log.e("RequestHelper", "encryptMap end:" + encryptContent);
+        Log.e("RequestHelperSample", "encryptMap end:" + encryptContent);
         return map;
     }
 

@@ -31,6 +31,6 @@ dependencies {
     compile dependenciesCf.retrofit_converter_gson
     compile dependenciesCf.retrofit_adapter_rxjava
 
-    compile project(':basic_mvvm')
+    compile project(':basic_mvvm1')
     compile project(':net')
 }
